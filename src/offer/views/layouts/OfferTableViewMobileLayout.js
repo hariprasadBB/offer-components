@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {filter, concat} from "lodash";
+import {filter, concat, find} from "lodash";
+import Modal from "react-modal";
 
 import OffersModel from "../../model/OffersModel";
 import Context from "../../../helpers/Context.js";
 import FilterContainerMobileLayout from "./FilterContainerMobileLayout.js";
+import CompareContainerMobileLayout from "./CompareContainerMobileLayout.js";
 import {reactElementForRendererViewConfig} from "../domainRenderers";
 import Checkbox from "../../../controls/Checkbox.js";
 import Style from "./OfferTableViewMobileLayout.scss";
@@ -22,7 +24,8 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
         this.state = {
             filteredOffersModel: this.props.offersModel,
             filterShown: false,
-            offerIdsToBeCompared: []
+            offerIdsToBeCompared: [],
+            compareModalOpen: false
         };
     }
 
@@ -54,9 +57,8 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
             offerRows.push(this.renderOfferRow(offer));
         });
         const offerRowsComponent =  <div className={Style.offerSection}>{offerRows}</div>;
-        const filterContainer = <FilterContainerMobileLayout 
-            offersModel={this.props.offersModel}
-            onFilter={this.onFilter}/>;
+        const filterContainer = getFilterContainer(this.props.offersModel, this.onFilter);
+        const compareContainer = getCompareContainer(this.state.offerIdsToBeCompared, this.props.offersModel, this.state.compareModalOpen, this.closeCompareModal, this.props.viewConfiguration);
         return (
             //ToDo:
             <React.Fragment>
@@ -73,6 +75,13 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
                 </div>
                 <div className={Style.moreOffers}>+ 7 cards</div>
                 <div className={[Style.offerScrollTop, Style.symbolofferScrollTop].join(" ")}></div>
+                <div>
+                    {this.state.offerIdsToBeCompared.length > 0 
+                        && <button name="Compare" onClick={this.onCompareButtonClick}>
+                            {this.state.offerIdsToBeCompared.length} COMPARE OFFERS
+                        </button> }
+                    {compareContainer}
+                </div>
             </React.Fragment>
         );
     }
@@ -91,6 +100,12 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
         this.setState({offerIdsToBeCompared: newOfferIdsToBeCompared});
     }
 
+    onCompareButtonClick = () => {
+        this.setState({compareModalOpen: true});
+    }
+    closeCompareModal = () => {
+        this.setState({compareModalOpen: false});
+    }
     showFilter = () => {
         this.setState({filterShown: true});
     }
@@ -130,4 +145,22 @@ const getRowsRenderer = function(config, offer) {
     });
 
     return rows;
+};
+
+const getFilterContainer = function(offersModel, onFilter) {
+    return <FilterContainerMobileLayout 
+        offersModel={offersModel}
+        onFilter={onFilter}/>;
+};
+
+const getCompareContainer = function(offerIdsToBeCompared, offersModel, compareModalOpen, closeCompareModal, viewConfiguration) {
+    const selectedOffersForComparing = offerIdsToBeCompared.map((offerId) => find(offersModel.getOffersMap(), (offerModel) => offerId == offerModel.getId()));
+    return <Modal
+        isOpen={compareModalOpen}
+        onRequestClose={closeCompareModal}
+        contentLabel="Compare Modal">
+        <CompareContainerMobileLayout selectedOffers={selectedOffersForComparing} 
+            headerComponentConfig={viewConfiguration.compare.header}
+            rowsConfig={viewConfiguration.compare.rows}/>
+    </Modal>;
 };
