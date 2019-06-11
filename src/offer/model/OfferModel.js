@@ -24,7 +24,8 @@ export default class OfferModel {
             reviewsSummary: new Domains.ReviewsSummary(this.offerData.cardId, this.offerData.bank && this.offerData.bank.id),
             cardCategoryList: new Domains.CardCategoryList(this.offerData.cardCategoryList),
             cardNetworkList: new Domains.CardNetworkList(this.offerData.cardNetworkList),
-            cardFeeTypeList: new Domains.CardFeeTypeList(this.offerData.cardFeeTypeList)
+            cardFeeTypeList: new Domains.CardFeeTypeList(this.offerData.cardFeeTypeList),
+            rewards: new Domains.TextAndAdditionalInfoList(this.offerData.rewards)
         };
     }
 
@@ -86,6 +87,10 @@ export default class OfferModel {
 
     getLoungeAccess() {
         return this.offer.loungeAccess;
+    }
+
+    getRewards() {
+        return this.offer.rewards;
     }
 }
 

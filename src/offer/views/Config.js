@@ -20,6 +20,8 @@ const layoutConfiguration = {
             "rows": [
                 DomainRenderers.CreditCardFirstYearFeeItemRenderer,
                 DomainRenderers.CreditCardSecondYearFeeItemRenderer,
+                DomainRenderers.RewardsOneLineRenderer,
+                DomainRenderers.MoreRewardsRenderer,
                 DomainRenderers.LifeTimeFreeYesNoRenderer,
                 DomainRenderers.FeeWaiverYesNoRenderer,
                 DomainRenderers.LoungeAccessYesNoRenderer
