@@ -1,11 +1,11 @@
 //@flow
-import OfferModel from "../../model/OfferModel.js";
+import Offer from "../../model/Offer.js";
 import {CardCategory} from "../CardCategory.js";
 import EnumFilter from "./EnumFilter.js";
 
 export default class CardCategoryFilter extends EnumFilter<CardCategory> {
-    getDomainsFromOffer(offerModel: OfferModel): Array<CardCategory> {
-        const cardCategoryList = (offerModel.getCardCategoryList()).getDomains();
+    getDomainsFromOffer(offer: Offer): Array<CardCategory> {
+        const cardCategoryList = (offer.getCardCategoryList()).getDomains();
         return cardCategoryList;
     }
 }

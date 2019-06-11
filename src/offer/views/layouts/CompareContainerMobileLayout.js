@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import OfferModel from "../../model/OfferModel.js";
+import Offer from "../../model/Offer.js";
 import {reactElementForRendererViewConfig} from "../domainRenderers/index.js";
 
 const rendererConfigType = PropTypes.shape({
@@ -11,7 +11,7 @@ const rendererConfigType = PropTypes.shape({
 });
 export default class CompareContainerMobileLayout extends React.PureComponent {
     static propTypes = {
-        selectedOffers: PropTypes.arrayOf(PropTypes.instanceOf(OfferModel)).isRequired,
+        selectedOffers: PropTypes.arrayOf(PropTypes.instanceOf(Offer)).isRequired,
         headerComponentConfig: PropTypes.instanceOf(rendererConfigType).isRequired,
         rowsConfig: PropTypes.arrayOf(PropTypes.instanceOf(rendererConfigType)).isRequired
     }

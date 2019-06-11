@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import CompareContainerMobileLayout from "../CompareContainerMobileLayout.js";
-import OfferModel from "../../../model/OfferModel.js";
+import Offer from "../../../model/Offer.js";
 import CreditCardAnnualFee from "../../../domain/CreditCardAnnualFee.js";
 import {createCCContext} from "../../../../helpers/__tests__/TestUtils.js";
 
@@ -43,18 +43,18 @@ describe("Compare container layout", function() {
             }
         }
     };
-    const selectedOffers = [new OfferModel({offerData: offerData1, context}),
-        new OfferModel({offerData: offerData2, context})];
+    const selectedOffers = [new Offer({offerData: offerData1, context}),
+        new Offer({offerData: offerData2, context})];
     const headerComponentConfig = {
         renderer: HeaderRendererStub,
-        getDomain: function(offerModel) {
-            return offerModel.getId();
+        getDomain: function(offer) {
+            return offer.getId();
         }
     };
     const colRendererConfig = {
         renderer: ColRendererStub,
-        getDomain: function(offerModel) {
-            return offerModel.getFirstYearFee();
+        getDomain: function(offer) {
+            return offer.getFirstYearFee();
         },
         title: "Col1"
     };

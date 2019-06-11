@@ -11,39 +11,39 @@ import * as Usp from "./Usp";
 
 export const RatingItemRenderer = {
     renderer: ReviewsSummary.RatingItemRenderer,
-    getDomain: (offerModel) => offerModel.getReviewsSummary()
+    getDomain: (offer) => offer.getReviewsSummary()
 };
 export const CreditCardImageItemRenderer = {
     renderer: CreditCard.ImageItemRenderer,
-    getDomain: (offerModel) => offerModel.getCardUrl()
+    getDomain: (offer) => offer.getCardUrl()
 };
 export const CreditCardNameItemRenderer = {
     renderer: CreditCard.NameItemRenderer,
-    getDomain: (offerModel) => {
+    getDomain: (offer) => {
         return {
-            cardName: offerModel.getCardName(),
-            cardUrl: offerModel.getCardUrl()
+            cardName: offer.getCardName(),
+            cardUrl: offer.getCardUrl()
         };
     }
 };
 export const CreditCardFirstYearAndReducedFeeItemRenderer = {
     renderer: CreditCardAnnualFee.FirstYearFeeItemRenderer,
-    getDomain: (offerModel) => {
+    getDomain: (offer) => {
         return {
-            firstYearFee: offerModel.getFirstYearFee(),
-            reducedFee: offerModel.getReducedFee()
+            firstYearFee: offer.getFirstYearFee(),
+            reducedFee: offer.getReducedFee()
         };
     }
 };
 export const CreditCardSecondYearFeeItemRenderer = {
     renderer: CreditCardAnnualFee.GenericFeeRenderer,
-    getDomain: (offerModel) => offerModel.getSecondYearOnwards()
+    getDomain: (offer) => offer.getSecondYearOnwards()
 };
 export const CreditCardFirstYearFeeItemRenderer = {
     renderer: CreditCardAnnualFee.GenericFeeRenderer,
-    getDomain: (offerModel) => offerModel.getFirstYearFee()
+    getDomain: (offer) => offer.getFirstYearFee()
 };
 export const UspOneLineRenderer = {
     renderer: Usp.OneLinerItemRenderer,
-    getDomain: (offerModel) => offerModel.getUsp()
+    getDomain: (offer) => offer.getUsp()
 };

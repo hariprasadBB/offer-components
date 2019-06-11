@@ -3,16 +3,16 @@ import {uniqWith, filter, isEmpty, intersectionWith} from "lodash";
 
 import FilterableDomain from "./FilterableDomain.js";
 import OffersModel from "../../model/OffersModel.js";
-import OfferModel from "../../model/OfferModel.js";
+import Offer from "../../model/Offer.js";
 
 export default class EnumFilter<ED> extends FilterableDomain<ED, OffersModel> {
-    getDomainsFromOffer(offerModel: OfferModel): ?Array<ED> {
+    getDomainsFromOffer(offer: Offer): ?Array<ED> {
         return undefined;
     }    
 
     getFilterOptions(offersModel: OffersModel): Array<ED> {
-        const filterOptions = offersModel.getOffersMap().reduce((aggr, offerModel) => {
-            aggr.push(...this.getDomainsFromOffer(offerModel));
+        const filterOptions = offersModel.getOffersMap().reduce((aggr, offer) => {
+            aggr.push(...this.getDomainsFromOffer(offer));
             return aggr;
         }, []);
         return uniqWith(filterOptions, comparator);
