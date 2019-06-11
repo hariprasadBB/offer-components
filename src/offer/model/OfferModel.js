@@ -25,7 +25,8 @@ export default class OfferModel {
             cardCategoryList: new Domains.CardCategoryList(this.offerData.cardCategoryList),
             cardNetworkList: new Domains.CardNetworkList(this.offerData.cardNetworkList),
             cardFeeTypeList: new Domains.CardFeeTypeList(this.offerData.cardFeeTypeList),
-            rewards: new Domains.TextAndAdditionalInfoList(this.offerData.rewards)
+            rewards: new Domains.TextAndAdditionalInfoList(this.offerData.rewards),
+            joiningPerks: new Domains.TextAndAdditionalInfoList(this.offerData.joiningPerks)
         };
     }
 
@@ -91,6 +92,10 @@ export default class OfferModel {
 
     getRewards() {
         return this.offer.rewards;
+    }
+
+    getJoiningPerks() {
+        return this.offer.joiningPerks;
     }
 }
 

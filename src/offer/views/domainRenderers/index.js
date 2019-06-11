@@ -9,7 +9,7 @@ import * as CreditCard from "./CreditCard";
 import * as CreditCardAnnualFee from "./CreditCardAnnualFee";
 import * as Usp from "./Usp";
 import YesNoRenderer from "./YesNoRenderer.js";
-import * as Rewards from "./Rewards.js";
+import * as TextAndAdditionalInfo from "./TextAndAdditionalInfo.js";
 
 export const RatingItemRenderer = {
     renderer: ReviewsSummary.RatingItemRenderer,
@@ -67,12 +67,17 @@ export const UspOneLineRenderer = {
     getDomain: (offer) => offer.getUsp()
 };
 export const RewardsOneLineRenderer = {
-    renderer: Rewards.OneLiner,
+    renderer: TextAndAdditionalInfo.OneLiner,
     title: "REWARDS",
     getDomain: (offerModel) => offerModel.getRewards()
 };
+export const JoiningPerksOneLineRenderer = {
+    renderer: TextAndAdditionalInfo.OneLiner,
+    title: "JOINING PERKS",
+    getDomain: (offerModel) => offerModel.getJoiningPerks()
+};
 export const MoreRewardsRenderer = {
-    renderer: Rewards.MoreRewards,
+    renderer: TextAndAdditionalInfo.LastLine,
     title: "MORE REWARDS",
     getDomain: (offerModel) => offerModel.getRewards()
 };

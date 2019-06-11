@@ -22,6 +22,7 @@ const layoutConfiguration = {
                 DomainRenderers.CreditCardSecondYearFeeItemRenderer,
                 DomainRenderers.RewardsOneLineRenderer,
                 DomainRenderers.MoreRewardsRenderer,
+                DomainRenderers.JoiningPerksOneLineRenderer,
                 DomainRenderers.LifeTimeFreeYesNoRenderer,
                 DomainRenderers.FeeWaiverYesNoRenderer,
                 DomainRenderers.LoungeAccessYesNoRenderer

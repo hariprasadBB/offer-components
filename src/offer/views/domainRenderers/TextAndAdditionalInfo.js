@@ -14,7 +14,7 @@ export class OneLiner extends React.PureComponent {
     }
 }
 
-export class MoreRewards extends React.PureComponent {
+export class LastLine extends React.PureComponent {
     static propTypes = {
         domain: PropTypes.instanceOf(TextAndAdditionalInfoList).isRequired
     }
