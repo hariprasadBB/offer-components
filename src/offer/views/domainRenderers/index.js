@@ -10,6 +10,7 @@ import * as CreditCardAnnualFee from "./CreditCardAnnualFee";
 import * as Usp from "./Usp";
 import YesNoRenderer from "./YesNo.js";
 import * as TextAndAdditionalInfo from "./TextAndAdditionalInfo.js";
+import * as CardCategory from "./CardCategory.js";
 
 export const RatingItemRenderer = {
     renderer: ReviewsSummary.RatingItemRenderer,
@@ -86,4 +87,10 @@ export const FuelSurchargeWaiverRenderer = {
     renderer: TextAndAdditionalInfo.ItemRenderer,
     title: "FUEL SURCHARGE",
     getDomain: (offerModel) => offerModel.getFuelSurchargeWaiver()
+};
+
+export const TopCardCategoriesRenderer = {
+    renderer: CardCategory.TopCategoriesRenderer,
+    title: "CARD CATEGORIES",
+    getDomain: (offerModel) => offerModel.getCardCategoryList()
 };

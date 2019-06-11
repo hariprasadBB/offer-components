@@ -18,6 +18,7 @@ const layoutConfiguration = {
         "compare": {
             "header": DomainRenderers.CreditCardNameItemRenderer,
             "rows": [
+                DomainRenderers.TopCardCategoriesRenderer,
                 DomainRenderers.CreditCardFirstYearFeeItemRenderer,
                 DomainRenderers.CreditCardSecondYearFeeItemRenderer,
                 DomainRenderers.RewardsOneLineRenderer,
