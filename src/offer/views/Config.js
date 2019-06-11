@@ -25,7 +25,8 @@ const layoutConfiguration = {
                 DomainRenderers.JoiningPerksOneLineRenderer,
                 DomainRenderers.LifeTimeFreeYesNoRenderer,
                 DomainRenderers.FeeWaiverYesNoRenderer,
-                DomainRenderers.LoungeAccessYesNoRenderer
+                DomainRenderers.LoungeAccessYesNoRenderer,
+                DomainRenderers.FuelSurchargeWaiverRenderer
             ]
         }
     }

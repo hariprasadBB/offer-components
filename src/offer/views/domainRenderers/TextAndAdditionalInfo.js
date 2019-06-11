@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import {isEmpty} from "lodash";
 
 import {TextAndAdditionalInfoList} from "../../domain/TextAndAdditionalInfo.js";
+import TextAndAdditionalInfo from "../../domain/TextAndAdditionalInfo.js";
 
 export class OneLiner extends React.PureComponent {
     static propTypes = {
@@ -21,6 +22,15 @@ export class LastLine extends React.PureComponent {
     render() {
         const domains = this.props.domain.getDomains();
         return renderItem(domains, domains.length-1);
+    }
+}
+
+export class StandAlone extends React.PureComponent {
+    static propTypes = {
+        domain: PropTypes.instanceOf(TextAndAdditionalInfo).isRequired
+    }
+    render() {
+        return <div>{this.props.domain.getText()}</div>;
     }
 }
 

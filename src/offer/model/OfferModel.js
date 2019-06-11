@@ -13,6 +13,7 @@ export default class OfferModel {
             id: this.offerData.cpId,
             bank: new Domains.Bank(this.offerData.bank),
             cardName: new Domains.TextAndAdditionalInfo(this.offerData.cardName),
+            fuelSurchargeWaiver: new Domains.TextAndAdditionalInfo(this.offerData.fuelSurchargeWaiver),
             cardUrl: new Domains.SimpleString(this.offerData.cardUrl),
             firstYearFee: new Domains.CreditCardAnnualFee(this.offerData.firstYearFee),
             reducedFee: new Domains.CreditCardAnnualFee(this.offerData.reducedFee),
@@ -96,6 +97,10 @@ export default class OfferModel {
 
     getJoiningPerks() {
         return this.offer.joiningPerks;
+    }
+
+    getFuelSurchargeWaiver() {
+        return this.offer.fuelSurchargeWaiver;
     }
 }
 

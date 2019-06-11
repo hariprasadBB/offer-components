@@ -81,3 +81,9 @@ export const MoreRewardsRenderer = {
     title: "MORE REWARDS",
     getDomain: (offerModel) => offerModel.getRewards()
 };
+
+export const FuelSurchargeWaiverRenderer = {
+    renderer: TextAndAdditionalInfo.StandAlone,
+    title: "FUEL SURCHARGE",
+    getDomain: (offerModel) => offerModel.getFuelSurchargeWaiver()
+};
