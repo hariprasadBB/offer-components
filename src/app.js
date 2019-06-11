@@ -10,8 +10,8 @@ export function createContext(data) {
     return new Context(data);
 }
 
-export function createOffersManager(context) {
-    return new OffersManager(context);
+export function createOffersManager(context, personalizedOffersJson, staticOfferFeaturesJson) {
+    return new OffersManager(context, personalizedOffersJson, staticOfferFeaturesJson);
 }
 
 export function launchOfferTable(offersManager, renderIntoElementWithId) {

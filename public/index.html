@@ -18,17 +18,24 @@
       var deviceDetect = new MobileDetect(window.navigator.userAgent);
       var deviceType = deviceDetect.tablet() ? "tablet" : deviceDetect.mobile() ? "mobile" : "desktop";
 
-      window.addEventListener("load", function(){
+      window.addEventListener("load", function () {
           var context = offercomponents.createContext({
-            userContext: {isInternal: true},
+            userContext: { isInternal: true },
             experimentContext: {},
             deviceType: deviceType.toUpperCase(),
             productType: "CC"
+          });
+          fetch("/cc-offer-features.json").then(function (response) {
+            return response.json();
+          }).then(function (staticOfferFeaturesJson) {
+              fetch("/cc-offers.json").then(function (response) {
+                  return response.json();
+              }).then(function (personalizedOffersJson) {
+                  var offersManager = offercomponents.createOffersManager(context, JSON.stringify(personalizedOffersJson), JSON.stringify(staticOfferFeaturesJson));
+                  offercomponents.launchOfferTable(offersManager, "root");
+              });
+          });
         });
-        var offersManager = offercomponents.createOffersManager(context);
-        offercomponents.launchOfferTable(offersManager, "root");
-
-      });
   </script>
 
 </body>
