@@ -1,8 +1,8 @@
 //@flow
-import DropdownFilterRenderer from "./DropdownFilterRenderer.js";
+import DropdownFilter from "./DropdownFilter.js";
 import Bank from "../../../domain/Bank.js";
 
-export default class BankFilterRenderer extends DropdownFilterRenderer {
+export default class BankFilterRenderer extends DropdownFilter {
     getValue(domain: Bank) {
         return domain.getId();
     }

@@ -1,7 +1,7 @@
 import {shallow} from "enzyme";
 import React from "react";
 
-import YesNoRenderer from "../YesNoRenderer.js";
+import YesNoRenderer from "../YesNo.js";
 
 describe("Yes no renderer", function() {
     it("should show yes or no", function() {

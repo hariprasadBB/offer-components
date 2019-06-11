@@ -1,9 +1,9 @@
 import {mount} from "enzyme";
 import React from "react";
 import sinon from "sinon";
-import DropdownFilterRenderer from "../DropdownFilterRenderer.js";
+import DropdownFilter from "../DropdownFilter.js";
 
-class DropdownFilterRendererStub extends DropdownFilterRenderer {
+class DropdownFilterStub extends DropdownFilter {
     getValue(domain) {
         return domain;
     }
@@ -13,12 +13,12 @@ class DropdownFilterRendererStub extends DropdownFilterRenderer {
     }
 }
 
-describe("Dropdown filter renderer", function () {
+describe("Dropdown filter", function () {
     it("should render filter options of any domain", function() {
         const stubbedOnChange = sinon.stub();
         const domain1 = "VALUE1";
         const domain2 = "VALUE2";
-        const wrapper = mount(React.createElement(DropdownFilterRendererStub, {
+        const wrapper = mount(React.createElement(DropdownFilterStub, {
             options: [domain1, domain2],
             selectedOptions: [domain2],
             onChange: stubbedOnChange,
@@ -32,7 +32,7 @@ describe("Dropdown filter renderer", function () {
         const stubbedOnChange = sinon.stub();
         const domain1 = "VALUE1";
         const domain2 = "VALUE2";
-        const wrapper = mount(React.createElement(DropdownFilterRendererStub, {
+        const wrapper = mount(React.createElement(DropdownFilterStub, {
             options: [domain1, domain2],
             onChange: stubbedOnChange,
             title: "someTitle"

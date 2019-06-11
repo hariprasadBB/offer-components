@@ -5,7 +5,7 @@ import {isEmpty} from "lodash";
 import {TextAndAdditionalInfoList} from "../../domain/TextAndAdditionalInfo.js";
 import TextAndAdditionalInfo from "../../domain/TextAndAdditionalInfo.js";
 
-export class OneLiner extends React.PureComponent {
+export class FirstItemRenderer extends React.PureComponent {
     static propTypes = {
         domain: PropTypes.instanceOf(TextAndAdditionalInfoList).isRequired
     }
@@ -15,7 +15,7 @@ export class OneLiner extends React.PureComponent {
     }
 }
 
-export class LastLine extends React.PureComponent {
+export class LastItemRenderer extends React.PureComponent {
     static propTypes = {
         domain: PropTypes.instanceOf(TextAndAdditionalInfoList).isRequired
     }
@@ -25,7 +25,7 @@ export class LastLine extends React.PureComponent {
     }
 }
 
-export class StandAlone extends React.PureComponent {
+export class ItemRenderer extends React.PureComponent {
     static propTypes = {
         domain: PropTypes.instanceOf(TextAndAdditionalInfo).isRequired
     }

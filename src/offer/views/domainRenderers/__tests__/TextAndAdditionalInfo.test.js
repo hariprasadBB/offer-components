@@ -1,7 +1,7 @@
 import {shallow} from "enzyme";
 import React from "react";
 
-import {OneLiner, LastLine} from "../TextAndAdditionalInfo.js";
+import {FirstItemRenderer, LastItemRenderer} from "../TextAndAdditionalInfo.js";
 import {TextAndAdditionalInfoList} from "../../../domain/TextAndAdditionalInfo.js";
 
 describe("TextAndAdditionalInfo renderer", function () {
@@ -15,29 +15,29 @@ describe("TextAndAdditionalInfo renderer", function () {
             "additionalInfo": ""
         }
     ];
-    it("OneLiner should render first data", function() {
-        const wrapper = shallow(React.createElement(OneLiner, {
+    it("FirstItemRenderer should render first data", function() {
+        const wrapper = shallow(React.createElement(FirstItemRenderer, {
             domain: new TextAndAdditionalInfoList(data)
         }));
         expect(wrapper.find("div[children=\"5 JPMiles/Rs.100 on domestic spends\"]").length).toBe(1);        
     });
 
-    it("OneLiner should render NA when no data found", function() {
-        const wrapper = shallow(React.createElement(OneLiner, {
+    it("FirstItemRenderer should render NA when no data found", function() {
+        const wrapper = shallow(React.createElement(FirstItemRenderer, {
             domain: new TextAndAdditionalInfoList([])
         }));
         expect(wrapper.find("div[children=\"NA\"]").length).toBe(1);        
     });
 
-    it("LastLine should render the last data", function() {
-        const wrapper = shallow(React.createElement(LastLine, {
+    it("LastItemRenderer should render the last data", function() {
+        const wrapper = shallow(React.createElement(LastItemRenderer, {
             domain: new TextAndAdditionalInfoList(data)
         }));
         expect(wrapper.find("div[children=\"7 JPMiles/Rs.100 on international spends\"]").length).toBe(1);        
     });
 
-    it("LastLine should render NA when no data found", function() {
-        const wrapper = shallow(React.createElement(LastLine, {
+    it("LastItemRenderer should render NA when no data found", function() {
+        const wrapper = shallow(React.createElement(LastItemRenderer, {
             domain: new TextAndAdditionalInfoList([])
         }));
         expect(wrapper.find("div[children=\"NA\"]").length).toBe(1);        

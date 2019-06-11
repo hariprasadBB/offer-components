@@ -6,7 +6,7 @@ import Select from "react-select";
 import Checkbox from "../../../../controls/Checkbox.js";
 import Style from  "./../../../../styles/filter/DropdownFilterRenderer.scss";
 
-export default class DropdownFilterRenderer extends React.PureComponent {
+export default class DropdownFilter extends React.PureComponent {
     static propTypes = {
         options: PropTypes.arrayOf(PropTypes.any).isRequired,
         onChange: PropTypes.func.isRequired,

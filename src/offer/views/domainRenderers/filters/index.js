@@ -1,9 +1,9 @@
-import EnumBasedDropdownFilterRenderer from "./EnumBasedDropdownFilterRenderer.js";
-import BankFilterRendererInner from "./BankFilterRenderer.js";
+import EnumBasedDropdownFilter from "./EnumBasedDropdownFilter.js";
+import BankFilterDropdown from "./BankFilterDropdown.js";
 import * as Domains from "../../../domain/filters/index.js";
 
 export const CardCategoryFilterRenderer = {
-    renderer: EnumBasedDropdownFilterRenderer,
+    renderer: EnumBasedDropdownFilter,
     domain: Domains.CardCategoryFilterableDomain,
     props: {
         title: "Card Categories",
@@ -11,7 +11,7 @@ export const CardCategoryFilterRenderer = {
     }
 };
 export const CardFeeTypeFilterRenderer = {
-    renderer: EnumBasedDropdownFilterRenderer,
+    renderer: EnumBasedDropdownFilter,
     domain: Domains.CardFeeTypeFilterableDomain,
     props: {
         title: "Card Fee Type",
@@ -20,7 +20,7 @@ export const CardFeeTypeFilterRenderer = {
 };
 
 export const CardNetworkFilterRenderer = {
-    renderer: EnumBasedDropdownFilterRenderer,
+    renderer: EnumBasedDropdownFilter,
     domain: Domains.CardNetworkFilterableDomain,
     props: {
         title: "Card Network",
@@ -29,7 +29,7 @@ export const CardNetworkFilterRenderer = {
 };
 
 export const BankFilterRenderer = {
-    renderer: BankFilterRendererInner,
+    renderer: BankFilterDropdown,
     domain: Domains.BankFilterableDomain,
     props:{
         title: "Bank",

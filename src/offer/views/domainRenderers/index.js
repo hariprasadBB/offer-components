@@ -8,7 +8,7 @@ import * as ReviewsSummary from "./ReviewsSummary";
 import * as CreditCard from "./CreditCard";
 import * as CreditCardAnnualFee from "./CreditCardAnnualFee";
 import * as Usp from "./Usp";
-import YesNoRenderer from "./YesNoRenderer.js";
+import YesNoRenderer from "./YesNo.js";
 import * as TextAndAdditionalInfo from "./TextAndAdditionalInfo.js";
 
 export const RatingItemRenderer = {
@@ -67,23 +67,23 @@ export const UspOneLineRenderer = {
     getDomain: (offer) => offer.getUsp()
 };
 export const RewardsOneLineRenderer = {
-    renderer: TextAndAdditionalInfo.OneLiner,
+    renderer: TextAndAdditionalInfo.FirstItemRenderer,
     title: "REWARDS",
     getDomain: (offerModel) => offerModel.getRewards()
 };
 export const JoiningPerksOneLineRenderer = {
-    renderer: TextAndAdditionalInfo.OneLiner,
+    renderer: TextAndAdditionalInfo.FirstItemRenderer,
     title: "JOINING PERKS",
     getDomain: (offerModel) => offerModel.getJoiningPerks()
 };
 export const MoreRewardsRenderer = {
-    renderer: TextAndAdditionalInfo.LastLine,
+    renderer: TextAndAdditionalInfo.LastItemRenderer,
     title: "MORE REWARDS",
     getDomain: (offerModel) => offerModel.getRewards()
 };
 
 export const FuelSurchargeWaiverRenderer = {
-    renderer: TextAndAdditionalInfo.StandAlone,
+    renderer: TextAndAdditionalInfo.ItemRenderer,
     title: "FUEL SURCHARGE",
     getDomain: (offerModel) => offerModel.getFuelSurchargeWaiver()
 };

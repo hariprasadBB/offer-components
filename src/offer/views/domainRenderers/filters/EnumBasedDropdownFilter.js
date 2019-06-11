@@ -1,8 +1,8 @@
 //@flow
-import DropdownFilterRenderer from "./DropdownFilterRenderer.js";
+import DropdownFilter from "./DropdownFilter.js";
 import {EnumDomain} from "../../../domain/Enum.js";
 
-export default class EnumBasedDropdownFilterRenderer extends DropdownFilterRenderer {
+export default class EnumBasedDropdownFilterRenderer extends DropdownFilter {
     getValue(domain: EnumDomain<any>) {
         return domain.getValue();
     }
