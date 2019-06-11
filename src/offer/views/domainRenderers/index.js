@@ -8,6 +8,7 @@ import * as ReviewsSummary from "./ReviewsSummary";
 import * as CreditCard from "./CreditCard";
 import * as CreditCardAnnualFee from "./CreditCardAnnualFee";
 import * as Usp from "./Usp";
+import YesNoRenderer from "./YesNoRenderer.js";
 
 export const RatingItemRenderer = {
     renderer: ReviewsSummary.RatingItemRenderer,
@@ -37,11 +38,28 @@ export const CreditCardFirstYearAndReducedFeeItemRenderer = {
 };
 export const CreditCardSecondYearFeeItemRenderer = {
     renderer: CreditCardAnnualFee.GenericFeeRenderer,
-    getDomain: (offer) => offer.getSecondYearOnwards()
+    title: "2ND YEAR FEE",
+    getDomain: (offerModel) => offerModel.getSecondYearOnwards()
 };
 export const CreditCardFirstYearFeeItemRenderer = {
     renderer: CreditCardAnnualFee.GenericFeeRenderer,
-    getDomain: (offer) => offer.getFirstYearFee()
+    title: "1ST YEAR FEE",
+    getDomain: (offerModel) => offerModel.getFirstYearFee()
+};
+export const LifeTimeFreeYesNoRenderer = {
+    renderer: YesNoRenderer,
+    title: "LIFETIME FREE",
+    getDomain: (offerModel) => offerModel.getLifeTimeFree()
+};
+export const FeeWaiverYesNoRenderer = {
+    renderer: YesNoRenderer,
+    title: "FEE WAIVER",
+    getDomain: (offerModel) => offerModel.getFeeWaiver()
+};
+export const LoungeAccessYesNoRenderer = {
+    renderer: YesNoRenderer,
+    title: "LOUNGE ACCESS",
+    getDomain: (offerModel) => offerModel.getLoungeAccess()
 };
 export const UspOneLineRenderer = {
     renderer: Usp.OneLinerItemRenderer,

@@ -18,6 +18,9 @@ export default class OfferModel {
             reducedFee: new Domains.CreditCardAnnualFee(this.offerData.reducedFee),
             secondYearOnwards: new Domains.CreditCardAnnualFee(this.offerData.secondYearOnwardsAnnualFee),
             usp: new Domains.Usp(this.offerData.usp),
+            lifeTimeFree: getBool(this.offerData.lifeTimeFree),
+            feeWaiver: getBool(this.offerData.feeWaiver),
+            loungeAccess: getBool(this.offerData.loungeAccess),
             reviewsSummary: new Domains.ReviewsSummary(this.offerData.cardId, this.offerData.bank && this.offerData.bank.id),
             cardCategoryList: new Domains.CardCategoryList(this.offerData.cardCategoryList),
             cardNetworkList: new Domains.CardNetworkList(this.offerData.cardNetworkList),
@@ -72,4 +75,20 @@ export default class OfferModel {
     getReducedFee() {
         return this.offer.reducedFee;
     }
+
+    getLifeTimeFree() {
+        return this.offer.lifeTimeFree;
+    }
+
+    getFeeWaiver() {
+        return this.offer.feeWaiver;
+    }
+
+    getLoungeAccess() {
+        return this.offer.loungeAccess;
+    }
 }
+
+const getBool = function(value) {
+    return value == "true" || value == true;
+};

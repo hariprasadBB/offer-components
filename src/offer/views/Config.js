@@ -19,7 +19,10 @@ const layoutConfiguration = {
             "header": DomainRenderers.CreditCardNameItemRenderer,
             "rows": [
                 DomainRenderers.CreditCardFirstYearFeeItemRenderer,
-                DomainRenderers.CreditCardSecondYearFeeItemRenderer
+                DomainRenderers.CreditCardSecondYearFeeItemRenderer,
+                DomainRenderers.LifeTimeFreeYesNoRenderer,
+                DomainRenderers.FeeWaiverYesNoRenderer,
+                DomainRenderers.LoungeAccessYesNoRenderer
             ]
         }
     }
