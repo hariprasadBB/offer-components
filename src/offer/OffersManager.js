@@ -8,4 +8,11 @@ export default class OffersManager {
         this.offersModel = new OffersModel(offersData, context);
         this.context = context;
     }
+
+    static prepare(context) {
+        const prepareDomains = OffersModel.prepare(context);
+        return Promise.all(prepareDomains).then(() => {
+            return Promise.resolve({});
+        });
+    }
 }

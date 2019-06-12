@@ -2,7 +2,7 @@ import ServiceProxy from "../../helpers/ServiceProxy";
 import Logger from "../../helpers/Logger";
 
 export default class ReviewsSummary {
-    static reviewsSummaryForAllCardsOrBanks;
+    static reviewsSummaryForAllCardsOrBanks = {};
 
     constructor(id, bankId) {
         this.reviewsSummary = ReviewsSummary.reviewsSummaryForAllCardsOrBanks[id || bankId];

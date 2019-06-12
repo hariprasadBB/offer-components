@@ -1,4 +1,5 @@
 import Offer from "./Offer";
+import * as Domains from "../domain";
 
 export default class OffersModel {
     constructor(offersData, context) {
@@ -18,5 +19,15 @@ export default class OffersModel {
 
     getContext() {
         return this.context;
+    }
+ 
+    static prepare(context) {
+        const preparableDomainKlasses = [Domains.ReviewsSummary];
+        return preparableDomainKlasses.map((domainKlass) => {
+            if (domainKlass.prepare) {
+                return domainKlass.prepare(context);
+            }
+            return Promise.resolve({});
+        });
     }
 }

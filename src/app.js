@@ -14,6 +14,10 @@ export function createOffersManager(context, personalizedOffersJson, staticOffer
     return new OffersManager(context, personalizedOffersJson, staticOfferFeaturesJson);
 }
 
+export function initialize(context) {
+    return OffersManager.prepare(context);
+}
+
 export function launchOfferTable(offersManager, renderIntoElementWithId) {
     ReactDOM.render(
         <OfferTableView offersManager = {offersManager}/>,

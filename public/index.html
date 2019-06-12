@@ -31,8 +31,10 @@
               fetch("/cc-offers.json").then(function (response) {
                   return response.json();
               }).then(function (personalizedOffersJson) {
-                  var offersManager = offercomponents.createOffersManager(context, JSON.stringify(personalizedOffersJson), JSON.stringify(staticOfferFeaturesJson));
-                  offercomponents.launchOfferTable(offersManager, "root");
+                  offercomponents.initialize(context).then(function(){
+                    var offersManager = offercomponents.createOffersManager(context, JSON.stringify(personalizedOffersJson), JSON.stringify(staticOfferFeaturesJson));
+                    offercomponents.launchOfferTable(offersManager, "root");
+                  });
               });
           });
         });
