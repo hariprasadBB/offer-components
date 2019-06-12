@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import CompareContainerMobileLayout from "../CompareContainerMobileLayout.js";
 import Offer from "../../../model/Offer.js";
 import CreditCardAnnualFee from "../../../domain/CreditCardAnnualFee.js";
-import {createCCContext} from "../../../../helpers/__tests__/TestUtils.js";
 
 class HeaderRendererStub extends React.Component {
     static propTypes = {
@@ -26,7 +25,6 @@ class ColRendererStub extends React.Component {
 }
 
 describe("Compare container layout", function() {
-    const context = createCCContext();
     const offerData1 = {
         cpId: 1,
         firstYearFee: {
@@ -43,8 +41,7 @@ describe("Compare container layout", function() {
             }
         }
     };
-    const selectedOffers = [new Offer({offerData: offerData1, context}),
-        new Offer({offerData: offerData2, context})];
+    const selectedOffers = [new Offer(offerData1), new Offer(offerData2)];
     const headerComponentConfig = {
         renderer: HeaderRendererStub,
         getDomain: function(offer) {

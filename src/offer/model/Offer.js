@@ -2,9 +2,7 @@ import * as Domains from "../domain";
 
 export default class Offer {
 
-    constructor({offerData, context}) {
-        this._context = context;
-
+    constructor(offerData) {
         this._offer = {};
         this._offer.cpId = offerData.cpId;
         this._offer.bank = new Domains.Bank(offerData.bank);

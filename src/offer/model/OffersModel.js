@@ -3,7 +3,7 @@ import * as Domains from "../domain";
 
 export default class OffersModel {
     constructor(offersData, context) {
-        this.offersMap = offersData.map((offerData) => new Offer({offerData, context}));
+        this.offersMap = offersData.map((offerData) => new Offer(offerData));
         this.context = context;
     }
 
