@@ -12,13 +12,25 @@ export class FirstYearFeeItemRenderer extends React.PureComponent {
             reducedFee: PropTypes.instanceOf(CreditCardAnnualFee)
         }).isRequired
     }
-
+    
     render() {
-        return <React.Fragment>
-            <span className={[Style.strikeValue, Style.symbolRsTwo].join(" ")}>{this.props.domain.firstYearFee.getOldFees()}<span className={Style.nonStrikeLoading}></span></span>
-            <strong className={[Style.textValue, Style.symbolRsOne].join(" ")}>{this.props.domain.firstYearFee.getCurrentFee()}</strong>
-            <div className={Style.textValueScondary}>1<sup>st</sup> Year Fee</div>
-        </React.Fragment>;
+        const reducedFeeExists = this.props.domain.reducedFee!=undefined && !this.props.domain.reducedFee.getCurrentFee()!=undefined;
+        return (
+            <React.Fragment>
+                {reducedFeeExists ? 
+                    (<span>
+                        <span>Reduced to
+                            <strong>{this.props.domain.reducedFee.getCurrentFee()}</strong>
+                        </span>
+                        <span>{this.props.domain.reducedFee.getConditionForFee()}</span>
+                    </span>) : null
+                } 
+                <span className={[Style.strikeValue, Style.symbolRsTwo].join(" ")}>{this.props.domain.firstYearFee.getOldFees()}<span className={Style.nonStrikeLoading}></span></span>
+                <strong className={[Style.textValue, Style.symbolRsOne].join(" ")}>{this.props.domain.firstYearFee.getCurrentFee()}</strong>
+                <div className={Style.textValueScondary}>1<sup>st</sup> Year Fee</div>
+            </React.Fragment>
+        );
+
     }
 }
 
@@ -33,3 +45,4 @@ export class GenericFeeRenderer extends React.PureComponent {
         </div>;
     }
 }
+
