@@ -76,7 +76,11 @@
         "additionalInfo": ""
       }
     ],
-    "apr": [],
+    "aprList": {
+      "aprs": null,
+      "interestRateTenure": null,
+      "conditions": null
+    },
     "feesAndCharges": [],
     "rewards": [
       {
@@ -203,16 +207,18 @@
         "additionalInfo": ""
       }
     ],
-    "apr": [
-      {
-        "value": 39.0,
-        "minValue": null,
-        "maxValue": null,
-        "cashless": false,
-        "interestRateTenure": "PER_ANNUM",
-        "conditions": null
-      }
-    ],
+    "aprList": {
+      "aprs": [
+        {
+          "value": 39.0,
+          "minValue": null,
+          "maxValue": null,
+          "cashless": false
+        }
+      ],
+      "interestRateTenure": "PER_ANNUM",
+      "conditions": null
+    },
     "feesAndCharges": [],
     "documents": [
       {
@@ -338,16 +344,18 @@
         "additionalInfo": ""
       }
     ],
-    "apr": [
-      {
-        "value": 40.8,
-        "minValue": null,
-        "maxValue": null,
-        "cashless": false,
-        "interestRateTenure": "PER_ANNUM",
-        "conditions": null
-      }
-    ],
+    "aprList": {
+      "aprs": [
+        {
+          "value": 40.8,
+          "minValue": null,
+          "maxValue": null,
+          "cashless": false
+        }
+      ],
+      "interestRateTenure": "PER_ANNUM",
+      "conditions": null
+    },
     "feesAndCharges": [],
     "documents": [
       {
