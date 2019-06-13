@@ -20,15 +20,18 @@ export default class TextandAdditionalInfo {
     }
 }
 
-export class TextAndAdditionalInfoList extends List<TextandAdditionalInfo, string> {
-    getItemValue(domain: ?TextandAdditionalInfo): ?string {
+export class TextAndAdditionalInfoList extends List<TextandAdditionalInfo, TextandAdditionalInfoValueType> {
+    getItemValue(domain: ?TextandAdditionalInfo): ?TextandAdditionalInfoValueType {
         if (domain == undefined) {
             return undefined;
         }
-        return domain.getText();
+        return {
+            text: domain.getText(),
+            additionalInfo: domain.getAdditionalInfo()
+        };
     }
 
-    initDomain(value: any) {
+    initDomain(value: TextandAdditionalInfoValueType) {
         return new TextandAdditionalInfo(value);
     }
 } 

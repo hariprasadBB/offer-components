@@ -11,7 +11,7 @@ export type CardNetworkValueType = $Keys<typeof cardNetworkTypes>;
 
 export class CardNetworkList extends EnumList<CardNetworkValueType> {
 
-    initDomain(value: string) {
+    initDomain(value: CardNetworkValueType) {
         return new CardNetwork(value);
     }
 }

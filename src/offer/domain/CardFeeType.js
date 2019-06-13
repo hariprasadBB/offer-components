@@ -11,7 +11,7 @@ export type CardFeeValueType = $Keys<typeof cardFeeTypes>;
 
 export class CardFeeTypeList extends EnumList<CardFeeValueType> {
 
-    initDomain(value: string) {
+    initDomain(value: CardFeeValueType) {
         return new CardFeeType(value);
     }
 }

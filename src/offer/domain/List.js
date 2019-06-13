@@ -4,7 +4,7 @@ import {compact, filter} from "lodash";
 export default class List<DT, VT> {
     domains: Array<?DT>
 
-    constructor(values: Array<string>) {
+    constructor(values: Array<VT>) {
         if (values == undefined) {
             this.domains = [];
         } else {
@@ -24,7 +24,7 @@ export default class List<DT, VT> {
         return filter(this.domains, (domain) => this.getItemValue(domain) != undefined);
     }
 
-    initDomain(value: any): ?DT {
+    initDomain(value: VT): ?DT {
         return undefined;
     }
 

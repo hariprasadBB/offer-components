@@ -13,7 +13,7 @@ export type CardCategoryValueType = $Keys<typeof cardCategoryTypes>;
 
 export class CardCategoryList extends EnumList<CardCategoryValueType> {
 
-    initDomain(value: string) {
+    initDomain(value: CardCategoryValueType) {
         return new CardCategory(value);
     }
 
